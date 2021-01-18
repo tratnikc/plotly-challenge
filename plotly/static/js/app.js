@@ -56,20 +56,20 @@ d3.json("data/samples.json").then((samplesData) => {
     // };
 
     // Plotly.newPlot("bubble",data1, layout1);
+    displayMetadata(samplesData);
+    // // display metadata
+    // // get reference to panel body
+    // var dataPanel = d3.select("#sample-metadata");
+    // // clear data
+    // dataPanel.html("");
+    // console.log(samplesData.metadata[0]);
+    // var metadata = samplesData.metadata[0];
 
-    // display metadata
-    // get reference to panel body
-    var dataPanel = d3.select("#sample-metadata");
-    // clear data
-    dataPanel.html("");
-    console.log(samplesData.metadata[0]);
-    var metadata = samplesData.metadata[0];
-
-    Object.entries(metadata).forEach(([key, value]) => {
-        //var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
-        var panelBody = dataPanel.append("p").text(`${key}: ${value}`);
-        console.log(`${key}: ${value}`);
-    })
+    // Object.entries(metadata).forEach(([key, value]) => {
+    //     //var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
+    //     var panelBody = dataPanel.append("p").text(`${key}: ${value}`);
+    //     console.log(`${key}: ${value}`);
+    // });
 
 });
 
@@ -132,3 +132,19 @@ function createBubbleChart(selectedData) {
     Plotly.newPlot("bubble", data1, layout1);
 
 };
+
+function displayMetadata(selectedData) {
+    // display metadata
+    // get reference to panel body
+    var dataPanel = d3.select("#sample-metadata");
+    // clear data
+    dataPanel.html("");
+    console.log(selectedData.metadata[0]);
+    var metadata = selectedData.metadata[0];
+
+    Object.entries(metadata).forEach(([key, value]) => {
+        //var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
+        var panelBody = dataPanel.append("p").text(`${key}: ${value}`);
+        console.log(`${key}: ${value}`);
+    });
+}
