@@ -92,22 +92,19 @@ function displayMetadata(selectedID) {
         // display metadata
         // get reference to panel body
         var dataPanel = d3.select("#sample-metadata");
-        // clear data
+        // clear panel data
         dataPanel.html("");
 
-        data.metadata.forEach((sample) => {
-            if (sample.id == selectedID.toString()) {
-                var metadata = sample;
+        var metadata = data.metadata.filter(object => object.id == selectedID)[0];
 
-                Object.entries(metadata).forEach(([key, value]) => {
-                    //var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
-                    var panelBody = dataPanel.append("p").text(`${key}: ${value}`);
-                    console.log(`${key}: ${value}`);
-                });
-            }
-        })
-    })
+        console.log(metadata);
 
-}
+        Object.entries(metadata).forEach(([key, value]) => {
+            //var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
+            var panelBody = dataPanel.append("p").text(`${key}: ${value}`);
+            console.log(`${key}: ${value}`);
+        });
+    });
+};
 
 init();
