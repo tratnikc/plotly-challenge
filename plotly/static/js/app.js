@@ -9,7 +9,7 @@ d3.json("data/samples.json").then((samplesData) => {
     console.log(sampleID);
     console.log(samplesData);
     createBarChart(sampleID);
-    createBubbleChart(samplesID);
+    createBubbleChart(sampleID);
     //displayMetadata(samplesData);
 });
 
@@ -17,6 +17,7 @@ function optionChanged(sampleID) {
     // get data based on the sampleID
     console.log(sampleID);
     createBarChart(sampleID);
+    createBubbleChart(sampleID);
 }
 
 function createBarChart(selectedID) {
@@ -25,7 +26,6 @@ function createBarChart(selectedID) {
     d3.json("data/samples.json").then((data) => {
         data.samples.forEach((sample) => {
             if (sample.id == selectedID.toString()) {
-                console.log("equal");
                 selectedData = sample;
                 // initialize webpage with data from first sampleID
                 var initSample = selectedData.id;
@@ -61,31 +61,37 @@ function createBarChart(selectedID) {
 
 };
 
-function createBubbleChart(selectedData) {
-    // initialize webpage with data from first sampleID
-    var sampleIndex = 0;
-    var initSample = selectedData.names[sampleIndex];
-    var initData = selectedData.samples[sampleIndex];
-    var otuIDstr = initData.otu_ids.map(String);
-    console.log(otuIDstr);
-
-    var data1 = [{
-        x: initData.otu_ids,
-        y: initData.sample_values,
-        text: initData.otu_labels,
-        mode: "markers",
-        marker: {
-            color: otuIDstr,
-            size: initData.sample_values
-        }
-    }];
-
-    var layout1 = {
-        xaxis: { title: "OTU ID"},
-        showlegend: false
-    };
-
-    Plotly.newPlot("bubble", data1, layout1);
+function createBubbleChart(selectedID) {
+    d3.json("data/samples.json").then((data) => {
+        data.samples.forEach((sample) => {
+            if (sample.id == selectedID.toString()) {
+                selectedData = sample;
+                var initSample = selectedData.id;
+                var initData = selectedData;
+                var otuIDstr = initData.otu_ids.map(String);
+                console.log(otuIDstr);
+            
+                var data1 = [{
+                    x: initData.otu_ids,
+                    y: initData.sample_values,
+                    text: initData.otu_labels,
+                    mode: "markers",
+                    marker: {
+                        color: otuIDstr,
+                        size: initData.sample_values
+                    }
+                }];
+            
+                var layout1 = {
+                    xaxis: { title: "OTU ID"},
+                    showlegend: false
+                };
+            
+                Plotly.newPlot("bubble", data1, layout1);
+            
+            }
+        })
+    })
 
 };
 
