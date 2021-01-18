@@ -1,7 +1,7 @@
 // populate dropdown
 var dropdown = d3.select("#selDataset");
 
-d3.json("samples.json").then((samplesData) => {
+d3.json("data/samples.json").then((samplesData) => {
     samplesData.names.forEach((sample) => {
         dropdown.append("option").text(sample).property("value", sample);
     });
@@ -31,6 +31,18 @@ d3.json("samples.json").then((samplesData) => {
     };
 
     Plotly.newPlot("bar", data0, layout0);
+
+    // create bubble chart
+
+    var trace1 = {
+        x: initData.otu_ids,
+        y: initData.sample_values,
+        mode: "markers",
+        marker: {
+            size: initData.sample_values
+        }
+    };
+
 });
 
 function optionChanged(sampleID) {
