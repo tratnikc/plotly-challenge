@@ -5,7 +5,7 @@ d3.json("data/samples.json").then((samplesData) => {
     samplesData.names.forEach((sample) => {
         dropdown.append("option").text(sample).property("value", sample);
     });
-
+    console.log(samplesData);
     // initialize webpage with data from first sampleID
     var initSample = samplesData.names[0];
     var initData = samplesData.samples[0];
@@ -54,6 +54,23 @@ d3.json("data/samples.json").then((samplesData) => {
     };
 
     Plotly.newPlot("bubble",data1, layout1);
+
+    // display metadata
+    // get reference to panel body
+    var dataPanel = d3.select("#sample-metadata");
+    // clear data
+    dataPanel.html("");
+    console.log(samplesData.metadata[0]);
+    var metadata = samplesData.metadata[0];
+
+    Object.entries(metadata).forEach(([key, value]) => {
+        console.log(`${key}: ${value}`);
+    })
+    
+    
+    //append info
+    
+
 
 });
 
