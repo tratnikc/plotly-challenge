@@ -72,7 +72,8 @@ function createBubbleChart(selectedID) {
             mode: "markers",
             marker: {
                 color: otuIDstr,
-                size: selectedData.sample_values
+                size: selectedData.sample_values,
+                colorscale: "Jet"
             }
         }];
     
@@ -102,8 +103,8 @@ function displayMetadata(selectedID) {
         Object.entries(metadata).forEach(([key, value]) => {
             //var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
             var panelBody = dataPanel.append("p").text(`${key}: ${value}`);
-            console.log(`${key}: ${value}`);
         });
+        gaugeThis(metadata.wfreq);
     });
 };
 
