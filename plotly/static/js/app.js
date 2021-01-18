@@ -48,13 +48,12 @@ d3.json("data/samples.json").then((samplesData) => {
         }
     }];
 
-    // var layout1 = {
-    //     title: 
-    //     showlegend:
+    var layout1 = {
+        xaxis: { title: "OTU ID"},
+        showlegend: false
+    };
 
-    // }
-
-
+    Plotly.newPlot("bubble",data1, layout1);
 
 });
 
