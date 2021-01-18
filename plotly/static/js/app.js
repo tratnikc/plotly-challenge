@@ -18,6 +18,7 @@ function optionChanged(sampleID) {
     console.log(sampleID);
     createBarChart(sampleID);
     createBubbleChart(sampleID);
+    displayMetadata(sampleID);
 }
 
 function createBarChart(selectedID) {
