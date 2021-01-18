@@ -34,27 +34,28 @@ d3.json("data/samples.json").then((samplesData) => {
     // Plotly.newPlot("bar", data0, layout0);
 
     // create bubble chart
+    createBubbleChart(samplesData);
 
-    var otuIDstr = initData.otu_ids.map(String);
-    console.log(otuIDstr);
+    // var otuIDstr = initData.otu_ids.map(String);
+    // console.log(otuIDstr);
 
-    var data1 = [{
-        x: initData.otu_ids,
-        y: initData.sample_values,
-        text: initData.otu_labels,
-        mode: "markers",
-        marker: {
-            color: otuIDstr,
-            size: initData.sample_values
-        }
-    }];
+    // var data1 = [{
+    //     x: initData.otu_ids,
+    //     y: initData.sample_values,
+    //     text: initData.otu_labels,
+    //     mode: "markers",
+    //     marker: {
+    //         color: otuIDstr,
+    //         size: initData.sample_values
+    //     }
+    // }];
 
-    var layout1 = {
-        xaxis: { title: "OTU ID"},
-        showlegend: false
-    };
+    // var layout1 = {
+    //     xaxis: { title: "OTU ID"},
+    //     showlegend: false
+    // };
 
-    Plotly.newPlot("bubble",data1, layout1);
+    // Plotly.newPlot("bubble",data1, layout1);
 
     // display metadata
     // get reference to panel body
@@ -103,4 +104,31 @@ function createBarChart(selectedData) {
 
     Plotly.newPlot("bar", data0, layout0);
 
-}
+};
+
+function createBubbleChart(selectedData) {
+    // initialize webpage with data from first sampleID
+    var initSample = selectedData.names[0];
+    var initData = selectedData.samples[0];
+    var otuIDstr = initData.otu_ids.map(String);
+    console.log(otuIDstr);
+
+    var data1 = [{
+        x: initData.otu_ids,
+        y: initData.sample_values,
+        text: initData.otu_labels,
+        mode: "markers",
+        marker: {
+            color: otuIDstr,
+            size: initData.sample_values
+        }
+    }];
+
+    var layout1 = {
+        xaxis: { title: "OTU ID"},
+        showlegend: false
+    };
+
+    Plotly.newPlot("bubble", data1, layout1);
+
+};
