@@ -34,14 +34,27 @@ d3.json("data/samples.json").then((samplesData) => {
 
     // create bubble chart
 
-    var trace1 = {
+    var otuIDstr = initData.otu_ids.map(String);
+    console.log(otuIDstr);
+
+    var data1 = [{
         x: initData.otu_ids,
         y: initData.sample_values,
+        text: initData.otu_labels,
         mode: "markers",
         marker: {
+            color: otuIDstr,
             size: initData.sample_values
         }
-    };
+    }];
+
+    // var layout1 = {
+    //     title: 
+    //     showlegend:
+
+    // }
+
+
 
 });
 
