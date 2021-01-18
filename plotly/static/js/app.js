@@ -59,36 +59,31 @@ function createBarChart(selectedID) {
 
 function createBubbleChart(selectedID) {
     d3.json("data/samples.json").then((data) => {
-        data.samples.forEach((sample) => {
-            if (sample.id == selectedID.toString()) {
-                var selectedData = sample;
-                var initSample = selectedData.id;
-                var initData = selectedData;
-                var otuIDstr = initData.otu_ids.map(String);
-                console.log(otuIDstr);
-            
-                var data1 = [{
-                    x: initData.otu_ids,
-                    y: initData.sample_values,
-                    text: initData.otu_labels,
-                    mode: "markers",
-                    marker: {
-                        color: otuIDstr,
-                        size: initData.sample_values
-                    }
-                }];
-            
-                var layout1 = {
-                    xaxis: { title: "OTU ID"},
-                    showlegend: false
-                };
-            
-                Plotly.newPlot("bubble", data1, layout1);
-            
-            }
-        })
-    })
+        var samples = data.samples;
+        var selectedData = samples.filter(object => object.id == selectedID)[0];
 
+        var otuIDstr = selectedData.otu_ids.map(String);
+        console.log(otuIDstr);
+
+        var data1 = [{
+            x: selectedData.otu_ids,
+            y: selectedData.sample_values,
+            text: selectedData.otu_labels,
+            mode: "markers",
+            marker: {
+                color: otuIDstr,
+                size: selectedData.sample_values
+            }
+        }];
+    
+        var layout1 = {
+            xaxis: { title: "OTU ID"},
+            showlegend: false
+        };
+    
+        Plotly.newPlot("bubble", data1, layout1);
+
+    });
 };
 
 function displayMetadata(selectedID) {
