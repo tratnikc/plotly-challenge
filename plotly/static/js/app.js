@@ -27,41 +27,34 @@ function createBarChart(selectedID) {
     console.log(selectedID.toString());
 
     d3.json("data/samples.json").then((data) => {
-        data.samples.forEach((sample) => {
-            if (sample.id == selectedID.toString()) {
-                var selectedData = sample;
-                // initialize webpage with data from first sampleID
-                var initSample = selectedData.id;
-                var initData = selectedData;
-                console.log(initData);
+        var samples = data.samples;
+        var selectedData = samples.filter(object => object.id == selectedID)[0];
+        // initialize webpage with data from first sampleID
+        console.log(selectedData);
 
-                // get sample_values first 10
-                var revValues = initData.sample_values.slice(0,10).reverse();
-                var otuIDs = initData.otu_ids.slice(0,10).reverse();
-                var strRevIDs = otuIDs.map(row => "OTU " + row.toString());
-                var revLabels = initData.otu_labels.slice(0,10).reverse();
+        // get sample_values first 10
+        var revValues = selectedData.sample_values.slice(0,10).reverse();
+        var otuIDs = selectedData.otu_ids.slice(0,10).reverse();
+        var strRevIDs = otuIDs.map(row => "OTU " + row.toString());
+        var revLabels = selectedData.otu_labels.slice(0,10).reverse();
 
-                // horizontal bar chart
-                var data0 = [{
-                    x: revValues,
-                    y: strRevIDs,
-                    text: revLabels,
-                    name: initSample,
-                    type: "bar",
-                    orientation: "h"
-                }];
+        // horizontal bar chart
+        var data0 = [{
+            x: revValues,
+            y: strRevIDs,
+            text: revLabels,
+            name: selectedID,
+            type: "bar",
+            orientation: "h"
+        }];
 
-                var layout0 = {
-                    barmode: "group"
-                };
+        var layout0 = {
+            barmode: "group"
+        };
 
-                Plotly.newPlot("bar", data0, layout0);
+        Plotly.newPlot("bar", data0, layout0);
 
-            }
-        
-        })
-    })
-
+    });
 };
 
 function createBubbleChart(selectedID) {
