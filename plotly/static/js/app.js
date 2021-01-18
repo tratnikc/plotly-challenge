@@ -10,7 +10,7 @@ d3.json("data/samples.json").then((samplesData) => {
     console.log(samplesData);
     createBarChart(sampleID);
     createBubbleChart(sampleID);
-    //displayMetadata(samplesData);
+    displayMetadata(sampleID);
 });
 
 function optionChanged(sampleID) {
@@ -26,7 +26,7 @@ function createBarChart(selectedID) {
     d3.json("data/samples.json").then((data) => {
         data.samples.forEach((sample) => {
             if (sample.id == selectedID.toString()) {
-                selectedData = sample;
+                var selectedData = sample;
                 // initialize webpage with data from first sampleID
                 var initSample = selectedData.id;
                 var initData = selectedData;
@@ -65,7 +65,7 @@ function createBubbleChart(selectedID) {
     d3.json("data/samples.json").then((data) => {
         data.samples.forEach((sample) => {
             if (sample.id == selectedID.toString()) {
-                selectedData = sample;
+                var selectedData = sample;
                 var initSample = selectedData.id;
                 var initData = selectedData;
                 var otuIDstr = initData.otu_ids.map(String);
@@ -95,19 +95,26 @@ function createBubbleChart(selectedID) {
 
 };
 
-function displayMetadata(selectedData) {
-    var sampleIndex = 0;
-    // display metadata
-    // get reference to panel body
-    var dataPanel = d3.select("#sample-metadata");
-    // clear data
-    dataPanel.html("");
-    console.log(selectedData.metadata[sampleIndex]);
-    var metadata = selectedData.metadata[sampleIndex];
+function displayMetadata(selectedID) {
+    d3.json("data/samples.json").then((data) => {
+        
+        // display metadata
+        // get reference to panel body
+        var dataPanel = d3.select("#sample-metadata");
+        // clear data
+        dataPanel.html("");
 
-    Object.entries(metadata).forEach(([key, value]) => {
-        //var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
-        var panelBody = dataPanel.append("p").text(`${key}: ${value}`);
-        console.log(`${key}: ${value}`);
-    });
+        data.metadata.forEach((sample) => {
+            if (sample.id == selectedID.toString()) {
+                var metadata = sample;
+
+                Object.entries(metadata).forEach(([key, value]) => {
+                    //var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
+                    var panelBody = dataPanel.append("p").text(`${key}: ${value}`);
+                    console.log(`${key}: ${value}`);
+                });
+            }
+        })
+    })
+
 }
