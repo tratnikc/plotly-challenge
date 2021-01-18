@@ -64,13 +64,9 @@ d3.json("data/samples.json").then((samplesData) => {
     var metadata = samplesData.metadata[0];
 
     Object.entries(metadata).forEach(([key, value]) => {
+        var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
         console.log(`${key}: ${value}`);
     })
-    
-    
-    //append info
-    
-
 
 });
 
