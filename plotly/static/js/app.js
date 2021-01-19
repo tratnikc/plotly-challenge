@@ -102,7 +102,7 @@ function displayMetadata(selectedID) {
 
         Object.entries(metadata).forEach(([key, value]) => {
             //var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
-            var panelBody = dataPanel.append("p").text(`${key}: ${value}`);
+            var panelBody = dataPanel.append("h6").text(`${key}: ${value}`);
         });
         gaugeThis(metadata.wfreq);
     });
