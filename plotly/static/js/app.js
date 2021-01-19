@@ -49,7 +49,8 @@ function createBarChart(selectedID) {
         }];
 
         var layout0 = {
-            barmode: "group"
+            barmode: "group",
+            hovermode: "closest"
         };
 
         Plotly.newPlot("bar", data0, layout0);
@@ -79,6 +80,7 @@ function createBubbleChart(selectedID) {
     
         var layout1 = {
             xaxis: { title: "OTU ID"},
+            hovermode: "closest",
             showlegend: false
         };
     
