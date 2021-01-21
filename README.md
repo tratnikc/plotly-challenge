@@ -31,3 +31,5 @@ A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable
 <em>A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable</em>
 . Retrieved from: 
 <a href="http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/" rel="nofollow noreferrer noopener" target="_blank">http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/</a>
+
+© 2019 Trilogy Education Services
