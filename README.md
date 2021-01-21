@@ -26,7 +26,7 @@ Build an interactive dashboard to explore the <a href="http://robdunnlab.com/pro
 <img src="https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/dashboard.png" width=600 height=600 />
 
 #### Gauge Chart "older" code base
-![Gauge Chart using a combination of Line, Pie, and Scatter charts](https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/oldCodeBase.png)
+![Gauge Chart using a combination of Line, Pie, and Scatter charts](https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/oldcode.png)
 
 #### Hybrid of Gauge Chart
 ![Gauge Chart using new Gauge Chart combined with Line and Scatter Charts](https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/hybridGauge.png)
