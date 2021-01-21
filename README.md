@@ -23,3 +23,11 @@ Build an interactive dashboard to explore the <a href="http://robdunnlab.com/pro
 
 ### Images
 <img src="https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/dashboard.png" width=600 height=600 />
+
+### About the Data
+Hulcr, J. et al.(2012) 
+<em>A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable</em>
+A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable
+<em>A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable</em>
+. Retrieved from: 
+<a href="http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/" rel="nofollow noreferrer noopener" target="_blank">http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/</a>
