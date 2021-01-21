@@ -106,8 +106,10 @@ function displayMetadata(selectedID) {
             //var panelBody = dataPanel.append("div").attr("class","panel-body").text(`${key}: ${value}`);
             var panelBody = dataPanel.append("h6").text(`${key}: ${value}`);
         });
-        //gaugeThis(metadata.wfreq);
-        pieGauge(metadata.wfreq);
+        freqGauge(metadata.wfreq);
+        // gaugeThis(metadata.wfreq);
+        // pieGauge(metadata.wfreq);
+
     });
 };
 
