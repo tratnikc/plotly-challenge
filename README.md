@@ -1,6 +1,7 @@
 # plotly-challenge
  
 ## Belly Button Biodiversity
+https://tratnikc.github.io/BellyButtonBiodiversity/
 
 ### included
 
@@ -50,4 +51,4 @@ The following charts are for my own use:
 *Gauge Chart using a combination of Line, Pie, and Scatter charts*
 ![Gauge Chart using a combination of Line, Pie, and Scatter charts](https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/oldcode.png)
 
--tratnikc
+**-tratnikc**
