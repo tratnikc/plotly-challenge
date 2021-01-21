@@ -22,7 +22,14 @@ Build an interactive dashboard to explore the <a href="http://robdunnlab.com/pro
  to plot the weekly washing frequency of the individual.
 
 ### Images
+#### Dashboard
 <img src="https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/dashboard.png" width=600 height=600 />
+
+#### Gauge Chart "older" code base
+![Gauge Chart using a combination of Line, Pie, and Scatter charts]()
+
+#### Hybrid of Gauge Chart
+
 
 ### About the Data
 Hulcr, J. et al.(2012) 
