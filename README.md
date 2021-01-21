@@ -15,6 +15,8 @@ Build an interactive dashboard to explore the <a href="http://robdunnlab.com/pro
   1. Create a horizontal bar chart
   2. Create a bubble chart
   3. Display sample metadata on the webpage
+  4. Deploy app to a free static page hosting service, such as GitHub Pages
+  5. Submit the links to deployment and GitHub repository
 
 <b>Bonus</b>
   * Adapt the Gauge Chart from 
