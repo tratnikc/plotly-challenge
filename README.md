@@ -42,7 +42,7 @@ The following charts are for my own use:
 
 #### Gauge Chart with needle
 **Gauge Chart using new Gauge Chart combined with Line and Scatter Charts**
-![Gauge Chart using new Gauge Chart combined with Line and Scatter Charts](https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/hybridGauge.png)
+<img src="https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/hybridGauge.png" width=400 height=400 />
 
 #### Gauge Chart "older" code base
 **Gauge Chart using a combination of Line, Pie, and Scatter charts**
