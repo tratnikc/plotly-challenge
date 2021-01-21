@@ -107,7 +107,7 @@ function displayMetadata(selectedID) {
             var panelBody = dataPanel.append("h6").text(`${key}: ${value}`);
         });
         freqGauge(metadata.wfreq);
-        // gaugeThis(metadata.wfreq);
+        // hybridGauge(metadata.wfreq);
         // pieGauge(metadata.wfreq);
 
     });

@@ -16,7 +16,10 @@ Build an interactive dashboard to explore the <a href="http://robdunnlab.com/pro
   2. Create a bubble chart
   3. Display sample metadata on the webpage
 
-<b>Bonus</>
+<b>Bonus</b>
   * Adapt the Gauge Chart from 
 <a href="https://plot.ly/javascript/gauge-charts/" rel="nofollow noreferrer noopener" target="_blank">https://plot.ly/javascript/gauge-charts/</a>
  to plot the weekly washing frequency of the individual.
+
+### Images
+<img src="https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/dashboard.png" width=600 height=600 />

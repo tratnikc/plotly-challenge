@@ -61,7 +61,7 @@ function freqGauge(wfreq) {
   
   
 };
-function gaugeThis(wfreq) {
+function hybridGauge(wfreq) {
     var level = wfreq;
 
     // calculate x and y based on triangle
