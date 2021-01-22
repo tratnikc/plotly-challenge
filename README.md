@@ -39,16 +39,16 @@ A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable
 <img src="https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/dashboard.png" width=600 height=600 />
 
 
-#### Note
-
-The following charts are for my own use:
+### Note
 
 #### Gauge Chart with needle
 *Gauge Chart using new Gauge Chart combined with Line and Scatter Charts*
+  * use code ```hybridGauge(metadata.wfreq);``` to display chart
 <img src="https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/hybridGauge.png" width=400 />
 
 #### Gauge Chart "older" code base
 *Gauge Chart using a combination of Line, Pie, and Scatter charts*
+  * use code ```pieGauge(metadata.wfreq);``` to display this chart
 ![Gauge Chart using a combination of Line, Pie, and Scatter charts](https://github.com/tratnikc/plotly-challenge/blob/main/plotly/images/oldcode.png)
 
-**-tratnikc**
+*-tratnikc*

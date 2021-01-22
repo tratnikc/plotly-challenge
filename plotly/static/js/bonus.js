@@ -62,83 +62,89 @@ function freqGauge(wfreq) {
   
 };
 function hybridGauge(wfreq) {
-    var level = wfreq;
+  var level = wfreq;
 
-    // calculate x and y based on triangle
-    var degrees = 180 - level*20,
-        radius = .8;
-    var radians = degrees * (Math.PI / 180);
-    var x = radius * Math.cos(radians);
-    var y = radius * Math.sin(radians);
-    var data = [
-        {
-          domain: { x: [0, 1], y: [0, 1] },
-          value: wfreq,
-          title: { text: "<b>Belly Button Washing Frequency</b> <br> Scrubs Per Week" },
-          type: "indicator",
-          mode: "gauge+number",
-          delta: { reference: 5 },
-          gauge: {
-            axis: { 
-              range: [null, 9], 
-              tickmode: "auto",
-              nticks: 10,
-              tick0: 0,
-              dtick: 1,
-              tickwidth: 1, 
-              tickcolor: "darkblue"
-             },
-            bar: { color: "#6699ff"},
-            steps: [
-              { range: [0, 1], color: "#ffffcc" },
-              { range: [1, 2], color: "#ccffcc" },
-              { range: [2, 3], color: "#ccff66" },
-              { range: [3, 4], color: "#bbff33" },
-              { range: [4, 5], color: "#ccff99" },
-              { range: [5, 6], color: "#99ff99" },
-              { range: [6, 7], color: "#33cc33" },
-              { range: [7, 8], color: "#009933" },
-              { range: [8, 9], color: "#006622" }
-            ],
-            text: "sample",
-            threshold: {
-              line: { color: "red", width: 4 },
-              thickness: 0.75,
-              value: 7
-            }
-          }
+  // calculate x and y based on triangle
+  var degrees = 180 - level*20, radius = .8;
+  var radians = degrees * (Math.PI / 180);
+  var x = radius * Math.cos(radians);
+  var y = radius * Math.sin(radians);
+  var data = [
+    {
+      domain: { x: [0, 1], y: [0, 1] },
+      value: wfreq,
+      title: { text: "<b>Belly Button Washing Frequency</b> <br> Scrubs Per Week" },
+      type: "indicator",
+      mode: "gauge+number",
+      delta: { reference: 5 },
+      gauge: {
+        axis: { 
+          range: [null, 9], 
+          tickmode: "auto",
+          nticks: 10,
+          tick0: 0,
+          dtick: 1,
+          tickwidth: 1, 
+          tickcolor: "darkblue"
         },
-        { type: 'scatter',
-        x: [0], y:[-0.49],
-        marker: {size: 14, color:'850000'},
-        showlegend: false,
-        name: 'BellyButtonDiversity ',
-        text: wfreq,
-        hoverinfo: 'text+name'}
-      ];
-      var gauge = d3.select("#gauge");
-
-      var layout = { 
-        shapes:[{
-          type: 'line',
-          x0: 0,
-          y0: -0.49,
-          y1: (y) - 0.49,
-          x1: x,
-          fillcolor: '850000',
-          line: {
-            color: '850000'
+        bar: { color: "#6699ff"},
+        steps: [
+          { range: [0, 1], color: "#ffffcc" },
+          { range: [1, 2], color: "#ccffcc" },
+          { range: [2, 3], color: "#ccff66" },
+          { range: [3, 4], color: "#bbff33" },
+          { range: [4, 5], color: "#ccff99" },
+          { range: [5, 6], color: "#99ff99" },
+          { range: [6, 7], color: "#33cc33" },
+          { range: [7, 8], color: "#009933" },
+          { range: [8, 9], color: "#006622" }
+          ],
+        text: "sample",
+          threshold: {
+            line: { color: "red", width: 4 },
+            thickness: 0.75,
+            value: 7
           }
-        }],
-        width: 600, 
-        height: 450, 
-        margin: { t: 0, b: 0 },
-        xaxis: {zeroline:false, showticklabels:false,
-          showgrid: false, range: [-1, 1]},
-        yaxis: {zeroline:false, showticklabels:false,
-          showgrid: false, range: [-1, 1]} }
-        ;
-      Plotly.newPlot('gauge', data, layout);
+      }
+    },
+    { type: 'scatter',
+    x: [0], y:[-0.49],
+    marker: {size: 14, color:'850000'},
+    showlegend: false,
+    name: 'BellyButtonDiversity ',
+    text: wfreq,
+    hoverinfo: 'text+name'}
+  ];
+
+  var gauge = d3.select("#gauge");
+
+  var layout = { 
+    shapes:[{
+      type: 'line',
+      x0: 0,
+      y0: -0.49,
+      y1: (y) - 0.49,
+      x1: x,
+      fillcolor: '850000',
+      line: {
+        color: '850000'
+      }
+    }],
+    width: 600, 
+    height: 450, 
+    margin: { t: 0, b: 0 },
+    xaxis: {zeroline:false, showticklabels:false,
+      showgrid: false, range: [-1, 1]},
+    yaxis: {zeroline:false, showticklabels:false,
+      showgrid: false, range: [-1, 1]} 
+    };
+
+    var config = {
+      // staticPlot: true, 
+      modeBarButtonsToRemove: ["autoScale2d", "zoomIn2d", "zoomOut2d"],
+      doubleClick: false
+    };
+  Plotly.newPlot('gauge', data, layout, config);
 
 };
 
@@ -208,6 +214,11 @@ function pieGauge(wfreq) {
       yaxis: {zeroline:false, showticklabels:false,
                 showgrid: false, range: [-1, 1]}
     };
+
+    var config = {
+      modeBarButtonsToRemove: ["autoScale2d", "zoomIn2d", "zoomOut2d"],
+      doubleClick: false
+    }
   
-    Plotly.newPlot('gauge', data, layout);
+    Plotly.newPlot('gauge', data, layout, config);
 };
